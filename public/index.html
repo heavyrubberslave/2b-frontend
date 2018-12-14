@@ -1,40 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+        <title>Estim 2B</title>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+        <link rel="stylesheet" href="./css/site.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container">
+                    <span class="navbar-brand mb-0 h1">Estim 2B</span>
+                </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+                <ul class="container nav nav-justified" id="nav-main">
+                    <li class="nav-item active">
+                        <a href="#" id="nav-control" data-main="main-control" class="nav-link">Control</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" id="nav-settings" data-main="main-settings" class="nav-link">Settings</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <!-- CONTROL VIEW -->
+            <div class="container" role="main" id="main-control">
+                <fieldset>
+                    <legend>Power</legend>
+                    <div class="form-group">
+                        <div>
+                            <label for="channel-a-power">Channel A</label>
+                            <span class="current-value" id="power-channel-a-current"/>
+                        </div>
+                        <input type="range" min="0" max="99" step="1" value="0" class="slider" id="channel-a-power">
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <label for="channel-b-power">Channel B</label>
+                            <span class="current-value" id="power-channel-b-current"/>
+                        </div>
+                        <input type="range" min="0" max="99" step="1" value="0" class="slider" id="channel-b-power">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Pulse</legend>
+                    <div class="form-group">
+                        <div>
+                            <label for="pulse-pwm">PWM</label>
+                            <span class="current-value" id="pulse-pwm-current"/>
+                        </div>
+                        <input type="range" min="2" max="99" step="1" value="0" class="slider" id="pulse-pwm">
+                    </div>
+
+                    <div class="form-group">
+                        <div>
+                            <label for="pulse-frequency">Frequency</label>
+                            <span class="current-value" id="pulse-frequency-current"/>
+                        </div>
+                        <input type="range" min="2" max="99" step="1" value="0" class="slider" id="pulse-frequency">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>General</legend>
+                    <div class="form-group">
+                        <label for="mode">Mode</label>
+                        <select id="mode" class="form-control">
+                            <option>PULSE</option>
+                            <option>ALTERNATING</option>
+                            <option>CONTINOUS</option>
+                            <option>A_PATTERN</option>
+                            <option>B_PATTERN</option>
+                            <option>ASYMETRIC_POWER_RAMP</option>
+                            <option>SYMETRIC_POWER_RAMP</option>
+                            <option>FREQUENCY_RAMP</option>
+                            <option>ALTERNATIVE_FREQUENCE_RAMP</option>
+                            <option>SAW_WAVE</option>
+                            <option>SINE_WAVE</option>
+                            <option>RANDOM</option>
+                            <option>STEP</option>
+                            <option>JUMP</option>
+                        </select>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="join-channels" class="form-check-input">
+                        <label for="join-channels">join channels</label>
+                    </div>
+                </fieldset>
+            </div>
+
+            <!-- SETTINGS VIEW -->
+            <div class="container hidden" role="main" id="main-settings">
+                <fieldset>
+                    <legend>Device</legend>
+                    <div class="form-group">
+                        <div>Power mode</div>
+
+                        <div>
+                            <div class="form-check">
+                                <input type="radio" name="power-mode" value="L" id="power-mode-l" class="form-check-input" checked>
+                                <label for="power-mode-l">low</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="power-mode" value="H" id="power-mode-h" class="form-check-input">
+                                <label for="power-mode-h">high</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </main>
+
+        <script src="./js/bundle.js"></script>
+        <script src="./js/main.bundle.js"></script>
+    </body>
 </html>

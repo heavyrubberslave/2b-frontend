@@ -1,0 +1,110 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~rangeslider-pure/dist/range-slider.css";
+
+$green: #16a085;
+
+body {
+  font-size: 16px;
+  font-family: "San Francisco", Arial, sans-serif;
+}
+
+main {
+  .container {
+    padding: 15px;
+
+    @include media-breakpoint-up(sm) {
+      padding: 15px 0;
+    }
+  }
+}
+
+.rangeSlider {
+  margin: 0.5rem 0;
+}
+
+.rangeSlider__handle {
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,.2);
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+  height: 1.8rem;
+  width: 1.8rem;
+
+  &.rangeSlider__handle__horizontal {
+    top: -0.7rem;
+  }
+}
+
+.rangeSlider__horizontal {
+  height: 0.5rem;
+
+  &, .rangeSlider__fill {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+.current-value {
+  color: $green;
+  float: right;
+}
+
+fieldset {
+  border: none;
+  background: #e2e2e2;
+  box-sizing: border-box;
+  padding: 15px 10px 10px 10px;
+  margin-bottom: 0.7rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  legend {
+    display: inline-block;
+    background: #222;
+    color: #e2e2e2;
+    width: auto;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: .8rem;
+    padding: 5px 10px;
+    margin-bottom: -0.4rem;
+    margin-left: -10px;
+  }
+}
+
+#toggle-more-options {
+  cursor: pointer;
+  color: $green;
+}
+
+.navbar {
+  padding: .5rem 1rem 0 1rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: .5rem 1rem;
+  }
+}
+
+.nav {
+  width: 100%;
+  //margin: 0 -1rem;
+
+  li {
+    a {
+      color: #666;
+      border-radius: 0;
+      border-bottom: 4px solid transparent;
+    }
+
+    &.active {
+      a {
+        border-color: $green;
+        color: #e2e2e2;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
